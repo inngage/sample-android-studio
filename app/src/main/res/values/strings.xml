@@ -8,6 +8,6 @@
         sending the fetched token to the server or subscribing to the PubSub topic. Please try
         running the sample again.</string>
     <!-- Inngage Platform Parameters -->
-    <string name="app_token">292bedddfe458ddcb617be0ddac68917</string>
+    <string name="app_token"></string>
     <string name="api_endpoint">https://api.inngage.com.br/v1</string>
 </resources>
