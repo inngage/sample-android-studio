@@ -1,7 +1,7 @@
 # sample-android-studio
 Veja como é simples configurar nosso sample de integração (Android Nativo):
 
-1) Crie uma conta de forma gratuita na platataforma Inngage (https://app.inngage.com.br)
+1) Crie uma conta de forma gratuita na plataforma Inngage (https://app.inngage.com.br)
 
 2) Faça o login e acesse: Configurações do App > Geral
 
