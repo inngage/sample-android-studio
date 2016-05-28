@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "1077542323882",
+    "project_id": "groovy-environs-119623"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077542323882:android:cb214abab5352f7b",
+        "android_client_info": {
+          "package_name": "br.com.inngage.sample"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqtiw5YWXbRY1QMaOXmuyw4DHlg11AJ30"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,201 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:2:1-72:12
+	package
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:3:5-36
+		INJECTED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:6:5-67
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:21:5-67
+MERGED from [com.google.android.gms:play-services-gcm:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.3.0/AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:21:5-67
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:6:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:7:22-76
+uses-permission#android.permission.VIBRATE
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:8:5-66
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:8:22-63
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:9:5-82
+MERGED from [com.google.android.gms:play-services-gcm:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.3.0/AndroidManifest.xml:21:5-82
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:9:22-79
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:10:5-68
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:24:5-67
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:10:22-65
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:11:5-75
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:11:22-72
+permission#br.com.inngage.sample.permission.C2D_MESSAGE
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:20:5-22:47
+	android:protectionLevel
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:22:9-44
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:21:9-68
+uses-permission#br.com.inngage.sample.permission.C2D_MESSAGE
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:24:5-84
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:24:22-81
+application
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:26:5-70:19
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:26:5-46:19
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-gcm:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.3.0/AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:26:5-46:19
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:29:9-41
+	android:supportsRtl
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:30:9-35
+	android:allowBackup
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:27:9-35
+	android:icon
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:28:9-43
+	android:theme
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:31:9-40
+activity#br.com.inngage.sample.MainActivity
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:32:9-38:20
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:32:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:33:13-37:29
+action#android.intent.action.MAIN
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:34:17-69
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:34:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:36:17-77
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:36:27-74
+receiver#com.google.android.gms.gcm.GcmReceiver
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:41:9-50:20
+	android:exported
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:43:13-36
+	android:permission
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:44:13-73
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:42:13-66
+intent-filter#br.com.inngage.sample+com.google.android.c2dm.intent.RECEIVE
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:45:13-49:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:46:17-81
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:46:25-78
+category#br.com.inngage.sample
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:48:17-66
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:48:27-63
+service#br.com.inngage.sample.GCMListenerService
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:55:9-61:19
+	android:exported
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:57:13-37
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:56:13-47
+intent-filter#com.google.android.c2dm.intent.RECEIVE
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:58:13-60:29
+service#br.com.inngage.sample.RegistrationIntentService
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:65:9-67:48
+	android:exported
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:67:13-37
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:66:13-54
+activity#br.com.inngage.sample.NotificationActivity
+ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:69:9-67
+	android:name
+		ADDED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml:69:19-55
+uses-sdk
+INJECTED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services-gcm:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.3.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.3.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/AndroidManifest.xml:20:5-43
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:23.4.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/src/main/AndroidManifest.xml
+provider#com.google.android.gms.measurement.AppMeasurementContentProvider
+ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:28:7-31:37
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:28:7-31:37
+	android:authorities
+		ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:29:11-76
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:31:11-35
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:30:11-90
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:33:7-39:18
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:33:7-39:18
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:35:11-33
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:34:11-83
+intent-filter#com.google.android.gms.measurement.UPLOAD
+ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:36:9-38:25
+action#com.google.android.gms.measurement.UPLOAD
+ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:37:11-77
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:37:19-75
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:41:7-44:37
+MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:41:7-44:37
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:43:11-33
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:44:11-35
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:42:11-82
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:8.3.0] /Users/viniciusdepaula/AndroidStudioWorkspace/InngageSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:22:13-58
