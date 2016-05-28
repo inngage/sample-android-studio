@@ -7,4 +7,6 @@ Veja como é simples configurar nosso sample de integração (Android Nativo):
 
 3) Copie o conteúdo do Aplication ID
 
-3) Altere a chave "app_token" localizada no arquivo "res/values/strings.xml" pelo conteúdo do Aplication ID
+4) Defina o valor chave "app_token" localizada no arquivo "res/values/strings.xml" com o conteúdo do Aplication ID
+
+<string name="app_token">Valor do seu Aplication ID</string>
