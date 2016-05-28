@@ -89,7 +89,7 @@ public class GCMListenerService extends GcmListenerService {
         }
 
         notificationIntent.putExtra("notifyID", data.getString("id"));
-        notificationIntent.putExtra("message", data.getString("message"));
+        notificationIntent.putExtra("message", data.getString("body"));
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */,
                 //new Intent(this, NotificationActivity.class),
@@ -111,7 +111,7 @@ public class GCMListenerService extends GcmListenerService {
 
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(contentTitle)
-                .setContentText(data.getString("message"))
+                .setContentText(data.getString("body"))
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
