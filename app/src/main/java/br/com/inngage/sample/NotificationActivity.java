@@ -44,7 +44,7 @@ public class NotificationActivity extends AppCompatActivity {
         utils = new Utilities();
         jsonBody = new JSONObject();
         jsonBody = utils.createNotificationCallback(notifyID);
-        utils.doPost(jsonBody, IntegrationConstants.API_CALLBACK);
+        utils.doPost(jsonBody, getString(R.string.api_endpoint)+"/notification/");
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -53,8 +53,6 @@ public class NotificationActivity extends AppCompatActivity {
 
         TextView textView = (TextView) findViewById(R.id.textView);
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
-
-
 
         url = bundle.getString("url");
 

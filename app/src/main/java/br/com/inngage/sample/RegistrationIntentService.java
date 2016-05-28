@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
@@ -22,7 +23,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,7 +33,6 @@ import java.util.Date;
 public class RegistrationIntentService extends IntentService {
 
     private static final String TAG = "RegIntentService";
-    private static final String[] TOPICS = {"global"};
 
     Utilities utils;
     TelephonyManager telephonyManager;
@@ -86,7 +85,7 @@ public class RegistrationIntentService extends IntentService {
 
         jsonBody = createSubscriberRequest(token);
         utils = new Utilities();
-        utils.doPost(jsonBody, IntegrationConstants.API_SUBSCRIPTION);
+        utils.doPost(jsonBody, getString(R.string.api_endpoint)+"/subscription/");
     }
 
     public JSONObject createSubscriberRequest(String regId/*, String identifier*/) {
@@ -109,7 +108,7 @@ public class RegistrationIntentService extends IntentService {
             jsonBody.put("registration", regId);
             jsonBody.put("platform", IntegrationConstants.PLATFORM);
             jsonBody.put("sdk", IntegrationConstants.SDK);
-            jsonBody.put("app_token", IntegrationConstants.APP_TOKEN);
+            jsonBody.put("app_token", getString(R.string.app_token));
             jsonBody.put("device_model", _MODEL);
             jsonBody.put("device_manufacturer", _MANUFACTURER);
             jsonBody.put("os_locale", _LOCALE);
@@ -185,10 +184,6 @@ final class IntegrationConstants {
 
     public static final String PLATFORM = "android";
     public static final String SDK = "1";
-    public static final String APP_TOKEN = "292bedddfe458ddcb617be0ddac68917";
-    public static final String API_SUBSCRIPTION = "http://www.inngage.me/api/subscription/";
-    public static final String API_CALLBACK = "http://www.inngage.me/api/notification/";
-
 }
 
 class MyInstanceIDListenerService extends InstanceIDListenerService {
@@ -205,6 +200,9 @@ class MyInstanceIDListenerService extends InstanceIDListenerService {
     public void onTokenRefresh() {
         // Fetch updated Instance ID token and notify our app's server of any changes (if applicable).
         Intent intent = new Intent(this, RegistrationIntentService.class);
+
+        Log.i(TAG, "onTokenRefresh called..");
+
         startService(intent);
     }
     // [END refresh_token]
@@ -259,9 +257,6 @@ class Utilities {
 
             Log.i(TAG, "Server Response:" + convertStreamToString(is));
 
-        } catch (MalformedURLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -335,7 +330,7 @@ class Utilities {
         try {
 
             jsonBody.put("id", $notificationId);
-            jsonBody.put("app_token", IntegrationConstants.APP_TOKEN);
+            jsonBody.put("app_token", Resources.getSystem().getString(R.string.app_token));
             jsonObj.put("notificationRequest", jsonBody);
 
             Log.i(TAG, "JSON Request: " + jsonObj.toString());
