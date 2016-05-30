@@ -24,6 +24,7 @@ public class GCMListenerService extends GcmListenerService {
     Random random = new Random();
     int notifyID = random.nextInt(9999 - 1000) + 1000;
     String contentTitle = "";
+    String contentText = "";
 
 
     /**
@@ -79,6 +80,14 @@ public class GCMListenerService extends GcmListenerService {
 
         Intent notificationIntent = new Intent(this, NotificationActivity.class);
 
+        if(data.getString("id") != null) {
+
+            notificationIntent.putExtra("notifyID", data.getString("id"));
+        }
+        if(data.getString("body") != null) {
+
+            notificationIntent.putExtra("message", data.getString("body"));
+        }
         if(data.getString("url") != null) {
 
             notificationIntent.putExtra("url", data.getString("url"));
@@ -87,15 +96,13 @@ public class GCMListenerService extends GcmListenerService {
 
             notificationIntent.putExtra("image", data.getString("image"));
         }
+        if(data.getString("additional_data") != null) {
 
-        notificationIntent.putExtra("notifyID", data.getString("id"));
-        notificationIntent.putExtra("message", data.getString("body"));
-
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */,
-                //new Intent(this, NotificationActivity.class),
+            notificationIntent.putExtra("additional_data", data.getString("additional_data"));
+        }
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
                 notificationIntent,
                 PendingIntent.FLAG_ONE_SHOT);
-
 
         if(data.getString("title") == null) {
 
@@ -105,13 +112,29 @@ public class GCMListenerService extends GcmListenerService {
 
             contentTitle = data.getString("title");
         }
+        if(data.getString("title") == null) {
+
+            contentTitle = getApplicationName(getApplicationContext());
+
+        } else {
+
+            contentTitle = data.getString("title");
+        }
+        if(data.getString("body") == null) {
+
+            contentText = "Nenhuma mensagem recebida.";
+
+        } else {
+
+            contentText = data.getString("body");
+        }
 
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
 
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(contentTitle)
-                .setContentText(data.getString("body"))
+                .setContentText(contentText)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)

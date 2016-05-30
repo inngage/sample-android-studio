@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
@@ -26,6 +25,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 
 /**
  * Created by viniciusdepaula on 17/05/16.
@@ -322,7 +322,7 @@ class Utilities {
         return jsonObj;
     }*/
 
-    public JSONObject createNotificationCallback(String $notificationId) {
+    public JSONObject createNotificationCallback(String $notificationId, String $appToken) {
 
         jsonBody = new JSONObject();
         jsonObj = new JSONObject();
@@ -330,7 +330,7 @@ class Utilities {
         try {
 
             jsonBody.put("id", $notificationId);
-            jsonBody.put("app_token", Resources.getSystem().getString(R.string.app_token));
+            jsonBody.put("app_token", $appToken);
             jsonObj.put("notificationRequest", jsonBody);
 
             Log.i(TAG, "JSON Request: " + jsonObj.toString());

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">InngageSample</string>
 
+    <string name="activity1">Activity 1</string>
+    <string name="activity2">Activity 2</string>
     <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
         send downstream messages to this app.</string>
     <string name="registering_message">Generating InstanceID token...</string>
@@ -8,6 +10,12 @@
         sending the fetched token to the server or subscribing to the PubSub topic. Please try
         running the sample again.</string>
     <!-- Inngage Platform Parameters -->
-    <string name="app_token"></string>
-    <string name="api_endpoint">https://api.inngage.com.br/v1</string>
+    <!-- Producao
+    https://api.inngage.com.br/v1
+    1129f19ebb17cdad39ded8e67306e8f9
+    http://www.inngage.me/api
+    292bedddfe458ddcb617be0ddac68917
+    -->
+    <string name="app_token">292bedddfe458ddcb617be0ddac68917</string>
+    <string name="api_endpoint">http://www.inngage.me/api</string>
 </resources>

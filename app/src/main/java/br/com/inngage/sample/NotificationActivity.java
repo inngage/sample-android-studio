@@ -11,6 +11,8 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -25,6 +27,8 @@ public class NotificationActivity extends AppCompatActivity {
     String notifyID, url, message, image;
     JSONObject jsonBody;
     Utilities utils;
+    JSONArray  additionalData;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,36 +36,39 @@ public class NotificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-
-        notifyID = bundle.getString("notifyID");
-        message = bundle.getString("message");
-        image = bundle.getString("image");
-
-        Log.i(TAG, "NotificationActivity called, getExtras()");
-
-        utils = new Utilities();
-        jsonBody = new JSONObject();
-        jsonBody = utils.createNotificationCallback(notifyID);
-        utils.doPost(jsonBody, getString(R.string.api_endpoint)+"/notification/");
-
-        if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
-
         TextView textView = (TextView) findViewById(R.id.textView);
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
 
-        url = bundle.getString("url");
+        intent = getIntent();
+        Bundle bundle = intent.getExtras();
 
-        if (url != null) {
+        if (bundle.getString("notifyID") != null) {
 
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            startActivity(browserIntent);
+            notifyID = bundle.getString("notifyID");
+
+            /* Start Inngage Callback API */
+
+            utils = new Utilities();
+            jsonBody = new JSONObject();
+            jsonBody = utils.createNotificationCallback(notifyID, getString(R.string.app_token));
+            utils.doPost(jsonBody, getString(R.string.api_endpoint)+"/notification/");
+
+            /* End Inngage Callback API */
         }
-        if (image != null) {
+        if (bundle.getString("message") != null) {
+
+            message = bundle.getString("message");
+
+            textView.setText(message);
+        }
+        if(bundle.getString("image") != null) {
+
+            image = bundle.getString("image");
+
+            if (android.os.Build.VERSION.SDK_INT > 9) {
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+            }
 
             URL url = null;
             try {
@@ -81,10 +88,48 @@ public class NotificationActivity extends AppCompatActivity {
             }
             imageView.setImageBitmap(bmp);
         }
-        if (message != null) {
+        if(bundle.getString("url") != null) {
 
-            textView.setText(message);
+            url = bundle.getString("url");
+
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(browserIntent);
         }
-        Log.i(TAG, "notifyID: " + notifyID + ", URL: " + url);
+
+        if(bundle.getString("additional_data") != null) {
+
+            try {
+
+                String tipo = "";
+
+                additionalData = new JSONArray(bundle.getString("additional_data"));
+
+                jsonBody = new JSONObject();
+                jsonBody = additionalData.getJSONObject(0);
+
+                if(jsonBody.getString("tipo") != null) {
+
+                    tipo = jsonBody.getString("tipo");
+
+                    if(tipo.equals("activity1")) {
+
+                        intent = new Intent(NotificationActivity.this, Activity1.class);
+                        startActivity(intent);
+                    }
+
+                    if(tipo.equals("activity2")) {
+
+                        intent = new Intent(NotificationActivity.this, Activity2.class);
+                        startActivity(intent);
+                    }
+                }
+
+            } catch (JSONException e) {
+
+                Log.e(TAG, "Error parsing data: " + e.toString());
+            }
+        }
+
+        Log.i(TAG, "NotificationActivity called, getExtras()");
     }
 }
