@@ -3,11 +3,11 @@ package br.com.inngage.sample;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.StrictMode;
-import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -25,7 +25,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.util.List;
 
 /**
  * Created by viniciusdepaula on 17/05/16.
@@ -36,8 +36,7 @@ public class RegistrationIntentService extends IntentService {
 
     Utilities utils;
     TelephonyManager telephonyManager;
-
-    static Context appContext;
+    LocationManager mLocationManager;
     JSONObject jsonBody, jsonObj;
 
     public RegistrationIntentService() {
@@ -46,31 +45,20 @@ public class RegistrationIntentService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         try {
-            // [START register_for_gcm]
-            // Initially this call goes out to the network to retrieve the token, subsequent calls
-            // are local.
-            // [START get_token]
+
             InstanceID instanceID = InstanceID.getInstance(this);
             String token = instanceID.getToken(getString(R.string.gcm_defaultSenderId),
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
-            // [END get_token]
-            Log.i(TAG, "GCM Registration Token: " + token);
 
-            // TODO: Implement this method to send any registration to your app's servers.
+            Log.d(TAG, "GCM Registration Token: " + token);
             sendRegistrationToServer(token);
 
-            // Subscribe to topic channels
-            //subscribeTopics(token);
-
-            // [END register_for_gcm]
         } catch (Exception e) {
+
             Log.d(TAG, "Failed to complete token refresh", e);
         }
-
-        //LocalBroadcastManager.getInstance(this).sendBroadcast(registrationComplete);
     }
 
     /**
@@ -86,9 +74,17 @@ public class RegistrationIntentService extends IntentService {
         jsonBody = createSubscriberRequest(token);
         utils = new Utilities();
         utils.doPost(jsonBody, getString(R.string.api_endpoint)+"/subscription/");
+
+        Location location = getLastKnownLocation();
+
+        if (location != null) {
+
+            jsonBody = utils.createLocationRequest(getDeviceId(), location.getLatitude(), location.getLongitude());
+            utils.doPost(jsonBody, getString(R.string.api_endpoint)+"/geolocation/");
+        }
     }
 
-    public JSONObject createSubscriberRequest(String regId/*, String identifier*/) {
+    public JSONObject createSubscriberRequest(String regId) {
 
         jsonBody = new JSONObject();
         jsonObj = new JSONObject();
@@ -116,24 +112,22 @@ public class RegistrationIntentService extends IntentService {
             jsonBody.put("os_version", _RELEASE);
             jsonBody.put("app_version", app.getVersionName());
             jsonBody.put("app_installed_in", app.getInstallationDate());
-            jsonBody.put("app_updated_in", app.getInstallationDate());
+            jsonBody.put("app_updated_in", app.getUpdateDate());
+            jsonBody.put("uuid", telephonyManager.getDeviceId());
             jsonObj.put("registerSubscriberRequest", jsonBody);
 
             Log.i(TAG, "JSON Request: " + jsonObj.toString());
 
         } catch (Throwable t) {
 
-            Log.i(TAG, "Error in createSubscriberRequest: " + t);
+            Log.i(TAG, "Error in createSubscriptionRequest: " + t);
         }
         return jsonObj;
     }
 
     public AppInfo getAppInfo() {
 
-        long installed = 0;
-
         String packageName = getApplicationContext().getPackageName();
-
         String updateDate = "";
         String installationDate = "";
         String versionName = "";
@@ -148,9 +142,43 @@ public class RegistrationIntentService extends IntentService {
             versionName = packageInfo.versionName;
 
         } catch (PackageManager.NameNotFoundException e) {
+
             e.printStackTrace();
         }
         return new AppInfo(installationDate, updateDate, versionName);
+    }
+
+    private Location getLastKnownLocation() {
+
+        mLocationManager = (LocationManager)getApplicationContext().getSystemService(LOCATION_SERVICE);
+        List<String> providers = mLocationManager.getProviders(true);
+        Location bestLocation = null;
+
+        for (String provider : providers) {
+
+            try {
+
+                Location l = mLocationManager.getLastKnownLocation(provider);
+                if (l == null) {
+                    continue;
+                }
+                if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
+                    // Found best last known location: %s", l);
+                    bestLocation = l;
+                }
+            } catch (SecurityException e) {
+
+                Log.d(TAG, "No permissions to get the user Location");
+            }
+        }
+        return bestLocation;
+    }
+
+    private String getDeviceId() {
+
+        telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+
+        return telephonyManager.getDeviceId();
     }
 }
 
@@ -198,14 +226,11 @@ class MyInstanceIDListenerService extends InstanceIDListenerService {
     // [START refresh_token]
     @Override
     public void onTokenRefresh() {
-        // Fetch updated Instance ID token and notify our app's server of any changes (if applicable).
+
         Intent intent = new Intent(this, RegistrationIntentService.class);
-
         Log.i(TAG, "onTokenRefresh called..");
-
         startService(intent);
     }
-    // [END refresh_token]
 }
 
 class Utilities {
@@ -219,24 +244,23 @@ class Utilities {
         OutputStream os = null;
         InputStream is = null;
         HttpURLConnection conn = null;
+        int readTimeout = 10000;
+        int connectTimeout = 15000;
 
         try {
 
             URL url = new URL(endpoint);
             conn = (HttpURLConnection) url.openConnection();
             String message = jbonBody.toString();
-            conn.setReadTimeout( 10000 /*milliseconds*/ );
-            conn.setConnectTimeout( 15000 /* milliseconds */ );
+            conn.setReadTimeout(readTimeout);
+            conn.setConnectTimeout(connectTimeout);
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
             conn.setFixedLengthStreamingMode(message.getBytes().length);
 
-            //make some HTTP header nicety
             conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
             conn.setRequestProperty("X-Requested-With", "XMLHttpRequest");
-
-            //open
 
             if (android.os.Build.VERSION.SDK_INT > 9) {
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -244,24 +268,19 @@ class Utilities {
             }
 
             conn.connect();
-
-            //setup send
             os = new BufferedOutputStream(conn.getOutputStream());
             os.write(message.getBytes());
-            //clean up
             os.flush();
-
-            //do somehting with response
             is = conn.getInputStream();
-            //String contentAsString = readIt(is, len);
 
             Log.i(TAG, "Server Response:" + convertStreamToString(is));
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
+
         } finally {
-            //clean up
+
             try {
 
                 if (os != null) {
@@ -270,7 +289,7 @@ class Utilities {
                 }
 
             } catch (IOException e) {
-                // TODO Auto-generated catch block
+
                 e.printStackTrace();
             }
             try {
@@ -283,7 +302,7 @@ class Utilities {
 
                 e.printStackTrace();
             }
-            if(conn != null) {
+            if (conn != null) {
 
                 conn.disconnect();
             }
@@ -302,16 +321,17 @@ class Utilities {
         }
     }
 
-    /*public JSONObject createLocationRequest(String IMEI) {
+    public JSONObject createLocationRequest(String deviceID, double lat, double lon) {
 
         jsonBody = new JSONObject();
         jsonObj = new JSONObject();
 
         try {
 
-            jsonBody.put("uuid", IMEI);
-            jsonBody.put("lat", regId);
-            jsonBody.put("lon", Constants.PLATFORM);
+            jsonBody.put("uuid", deviceID);
+            jsonBody.put("lat", lat);
+            jsonBody.put("lon", lon);
+            jsonObj.put("registerGeolocationRequest", jsonBody);
 
             Log.i(TAG, "JSON Request: " + jsonObj.toString());
 
@@ -320,7 +340,7 @@ class Utilities {
             Log.i(TAG, "Error in createLocationRequest: " + t);
         }
         return jsonObj;
-    }*/
+    }
 
     public JSONObject createNotificationCallback(String $notificationId, String $appToken) {
 

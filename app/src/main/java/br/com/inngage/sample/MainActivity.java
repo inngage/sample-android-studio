@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (checkPlayServices()) {
             Log.i(TAG,  "Start IntentService to register this application with GCM.");
-            Intent intent = new Intent(this, RegistrationIntentService.class);
-            startService(intent);
+            //Intent intent = new Intent(this, RegistrationIntentService.class);
+            startService(new Intent(this, RegistrationIntentService.class));
         }
     }
 
